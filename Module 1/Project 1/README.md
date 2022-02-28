@@ -4,7 +4,7 @@
 *  Blackjack Game
 
 
-*[Your Cohort, Campus & Date]*
+*Ironhack DA FEB 2022*
 
 ## Content
 - [Project Description](#project-description)
