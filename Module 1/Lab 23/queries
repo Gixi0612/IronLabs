@@ -1,0 +1,53 @@
+# Security footage shows that there were 2 witnesses. The first witness lives at the last house on "Northwestern Dr". The second witness, named Annabel, lives somewhere on "Franklin Ave".
+
+select * from person
+where address_street_name = 'Northwestern Dr'
+order by address_number desc
+limit 1;
+
+
+select * from person
+where address_street_name = 'Franklin Ave'
+and name LIKE 'Annabel%'
+
+id	name	license_id	address_number	address_street_name	ssn
+14887	Morty Schapiro	118009	4919	Northwestern Dr	111564949
+16371	Annabel Miller	490173	103	Franklin Ave	318771143
+
+select * from inerview
+where person_id = 16371 or person_id = 14887;
+              
+              
+
+              
+I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. 
+The membership number on the bag started with "48Z". Only gold members have those bags. 
+The man got into a car with a plate that included "H42W".
+
+I saw the murder happen, 
+and I recognized the killer from my gym when I was working out last week on January the 9th.
+
+select person.id from drivers_license
+left join person
+on drivers_license.id = person.license_id
+where plate_number like "%H42W%";
+
+id
+78193
+67318
+51739
+
+
+    
+select C.id, C.name, D.membership_status from (select person.id, person.name from drivers_license
+left join person
+on drivers_license.id = person.license_id
+where plate_number like "%H42W%") as C
+left join (select A.membership_id, person_id, membership_status from(select * from get_fit_now_check_in
+where check_in_date = 20180109) as A
+left join get_fit_now_member as B
+on A.membership_id = B.id 
+where membership_status = 'gold')as D
+on C.id = D.person_id;
+
+67318	Jeremy Bowers	gold
