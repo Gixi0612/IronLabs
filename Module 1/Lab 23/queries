@@ -52,5 +52,24 @@ on C.id = D.person_id;
 
 67318	Jeremy Bowers	gold
 
+select transcript from interview
+	   where person_id = '67318';
 
 I was hired by a woman with a lot of money. I don't know her name but I know she's around 5'5" (65") or 5'7" (67"). She has red hair and she drives a Tesla Model S. I know that she attended the SQL Symphony Concert 3 times in December 2017.
+
+SELECT A.person_id, A.c, B.name, C.car_make, C.height
+	   
+	   from (select *, count(date) as c from facebook_event_checkin
+	   where event_name like 'sql%'
+	   group by person_id
+	   order by date desc) as A
+	   
+	   LEFT JOIN person B
+	   on A.person_id = B.id
+	   
+	   LEFT JOIN drivers_license C
+	   on B.license_id = C.id
+	   
+	   where C.car_make like 'Tesla%';
+     
+     99716	3	Miranda Priestly	Tesla	66
