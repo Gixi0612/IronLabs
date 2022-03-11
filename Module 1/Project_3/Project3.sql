@@ -2,7 +2,7 @@ use project_3;
 select * from salary_data;
 select * from avg_salary_per_company;
 SELECT * FROM avg_salary_per_title;
-SELECT * FROM three_companies;
+SELECT * FROM three_companies_transposed; #comparison among each title, gender, yearsofexperiences and years at company 
 
 DROP TABLE avg_salary_per_company;
 DROP TABLE avg_salary_per_title;
@@ -54,3 +54,38 @@ WHERE title is not null and company = 'Google'
 GROUP BY company, title
 ORDER BY company asc) as C
 on A.title = C.title);
+
+ALTER TABLE three_companies_transposed
+DROP COLUMN MyUnknownColumn;
+SELECT * from three_companies_transposed;
+
+SELECT title, software_engineer
+FROM three_companies_transposed
+order by software_engineer desc;
+
+SELECT title, software_engineering_manager
+FROM three_companies_transposed
+order by software_engineering_manager desc;
+
+SELECT title, product_manager
+FROM three_companies_transposed
+order by product_manager desc;
+
+
+SELECT title, data_scientist
+FROM three_companies_transposed
+order by data_scientist desc;
+
+
+SELECT gender, company, avg(totalyearlycompensation) as avg_totalyearlycompensation
+FROM salary_data
+where gender is not null and (company = 'Google' or company = 'Apple' or company = 'Microsoft')
+GROUP BY gender, company
+order by  gender;
+
+#calculate the average year of experences and years at company of 3 chosen companies
+SELECT company, ROUND (avg(yearsofexperience),1) as avg_yearsofexperience , ROUND (avg(yearsatcompany),1) as avg_yearsatcompany
+FROM salary_data
+where company = 'Google' or company = 'Apple' or company = 'Microsoft'
+GROUP BY company
+Order by avg_yearsofexperience desc;
