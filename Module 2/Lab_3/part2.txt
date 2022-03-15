@@ -1,4 +1,4 @@
-<b> Challenge 1
+<b> Challenge 1 </b>
 One player rolls two dices. Describe the measurable space and the random variable for:
 
 A. The values that the player obtains : (1,2,3,4,5,6)
@@ -20,8 +20,7 @@ Case C: The maximum is the value of both rolls.
 A.(6,6)
 B. 12
 C.12
-
-<b> Challenge 2
+<b> Challenge 2 </b>
 One player picks two cards from a poker deck. Describe the measurable space and the random variable for:
 
 A. The number of figures he picks.
@@ -41,8 +40,7 @@ Case C: The value of both cards is less than 8.
 A. (2,2) (2,3) (2,4) (2,5) (2,6) (2,7) (3,3) (3,4) (3,5) (3,6) (3,7) (4,4) (4,5) (4,6) (4,7) (5,5) (5,6) (5,7) (6,6) (6,7) (7,7)
 B. 4 5 6 7 8 9 10 11 12 13 14
 C. (0,0) (1,0) (1,1)
-
-<b> Challenge 3
+<b> Challenge 3 </b>
 Two players roll a dice. Describe the measurable space and the random variable for:
 
 A. The score of player A. (1,2,3,4,5,6)
