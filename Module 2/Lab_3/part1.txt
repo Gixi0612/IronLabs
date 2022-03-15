@@ -1,0 +1,9 @@
+1. a = 42, b = 93 or vice versa
+2. Average speed is 85km/h
+3. 265.8 bulbs, 66.4%
+4. 
+mean= 46.5
+The median class is 39.5-59.5
+Median 40.67647
+Mode 44.2
+standard variation 36.48
