@@ -24,58 +24,118 @@ st.markdown("Breast Cancer Stats")
 st.write(breast_cancer_df)
 
 
-width = st.sidebar.slider("plot width", 1, 25, 3)
-height = st.sidebar.slider("plot height", 1, 25, 1)
 
-scatter_fig = plt.figure(figsize=(width,height))
+#scatter plot 
 
-scatter_ax = scatter_fig.add_subplot(111)
+st.sidebar.markdown("### Scatter Chart: Explore Relationship Between Measurements :")
 
-malignant_df = breast_cancer_df[breast_cancer_df["target"] == "malignant"]
-benign_df = breast_cancer_df[breast_cancer_df["target"] == "benign"]
+measurements = breast_cancer_df.drop(labels=["target"], axis=1).columns.tolist()
 
-malignant_df.plot.scatter(x="mean texture", y="mean area", s=120, c="tomato", alpha=0.6, ax=scatter_ax, label="Malignant")
-benign_df.plot.scatter(x="mean texture", y="mean area", s=120, c="dodgerblue", alpha=0.6, ax=scatter_ax,
-                       title="Mean Texture vs Mean Area", label="Benign");
+x_axis = st.sidebar.selectbox("X-Axis", measurements)
+y_axis = st.sidebar.selectbox("Y-Axis", measurements, index=1)
 
-st.pyplot(scatter_fig)
+if x_axis and y_axis:
+    scatter_fig = plt.figure(figsize=(6,5))
+
+    scatter_ax = scatter_fig.add_subplot(111)
+
+    malignant_df = breast_cancer_df[breast_cancer_df["target"] == "malignant"]
+    benign_df = breast_cancer_df[breast_cancer_df["target"] == "benign"]
+
+    malignant_df.plot.scatter(x=x_axis, y=y_axis, s=120, c="tomato", alpha=0.6, ax=scatter_ax, label="Malignant")
+    benign_df.plot.scatter(x=x_axis, y=y_axis, s=120, c="dodgerblue", alpha=0.6, ax=scatter_ax,
+                           title="{} vs {}".format(x_axis.capitalize(), y_axis.capitalize()), label="Benign");
+
+
+
+# bar plot
+st.sidebar.markdown("### Bar Chart: Average Measurements Per Tumor Type : ")
 
 avg_breast_cancer_df = breast_cancer_df.groupby("target").mean()
+bar_axis = st.sidebar.multiselect(label="Average Measures per Tumor Type Bar Chart",
+                                  options=measurements,
+                                  default=["mean radius","mean texture", "mean perimeter", "area error"])
 
-avg_breast_cancer_df
+if bar_axis:
+    bar_fig = plt.figure(figsize=(6,5))
 
-bar_fig = plt.figure(figsize=(width,height))
+    bar_ax = bar_fig.add_subplot(111)
 
-bar_ax = bar_fig.add_subplot(111)
+    sub_avg_breast_cancer_df = avg_breast_cancer_df[bar_axis]
 
-sub_avg_breast_cancer_df = avg_breast_cancer_df[["mean radius", "mean texture", "mean perimeter", "area error"]]
+    sub_avg_breast_cancer_df.plot.bar(alpha=0.8, ax=bar_ax, title="Average Measurements per Tumor Type");
 
-sub_avg_breast_cancer_df.plot.bar(alpha=0.8, ax=bar_ax, title="Average Measurements per Tumor Type");
+else:
+    bar_fig = plt.figure(figsize=(width,height))
 
-st.pyplot(bar_fig)
+    bar_ax = bar_fig.add_subplot(111)
 
-hist_fig = plt.figure(figsize=(width,height))
+    sub_avg_breast_cancer_df = avg_breast_cancer_df[["mean radius", "mean texture", "mean perimeter", "area error"]]
 
-hist_ax = hist_fig.add_subplot(111)
+    sub_avg_breast_cancer_df.plot.bar(alpha=0.8, ax=bar_ax, title="Average Measurements per Tumor Type");
 
-sub_breast_cancer_df = breast_cancer_df[["mean radius", "mean texture"]]
 
-sub_breast_cancer_df.plot.hist(bins=50, alpha=0.7, ax=hist_ax, title="Average Measurements per Tumor Type");
+#Histogram plot
+st.sidebar.markdown("### Histogram: Explore Distribution of Measurements : ")
 
-st.pyplot(hist_fig)
+hist_axis = st.sidebar.multiselect(label="Histogram Ingredient", options=measurements, default=["mean radius", "mean texture"])
+bins = st.sidebar.radio(label="Bins :", options=[10,20,30,40,50], index=4)
 
-hexbin_fig = plt.figure(figsize=(width,height))
+if hist_axis:
+    hist_fig = plt.figure(figsize=(6,4))
 
-hexbin_ax = hexbin_fig.add_subplot(111)
+    hist_ax = hist_fig.add_subplot(111)
 
-breast_cancer_df.plot.hexbin(x="mean texture", y="mean area",
-                             reduce_C_function=np.mean,
-                             gridsize=25,
-                             #cmap="Greens",
-                             ax=hexbin_ax,
-                             title="Concentration of Measurements"
-                            );
-st.pyplot(hexbin_fig)
+    sub_breast_cancer_df = breast_cancer_df[hist_axis]
+
+    sub_breast_cancer_df.plot.hist(bins=bins, alpha=0.7, ax=hist_ax, title="Distribution of Measurements");
+else:
+    hist_fig = plt.figure(figsize=(6,4))
+
+    hist_ax = hist_fig.add_subplot(111)
+
+    sub_breast_cancer_df = breast_cancer_df[["mean radius", "mean texture"]]
+
+    sub_breast_cancer_df.plot.hist(bins=bins, alpha=0.7, ax=hist_ax, title="Distribution of Measurements");
+
+#################### Hexbin Chart Logic ##################################
+
+st.sidebar.markdown("### Hexbin Chart: Explore Concentration of Measurements :")
+
+hexbin_x_axis = st.sidebar.selectbox("Hexbin-X-Axis", measurements, index=0)
+hexbin_y_axis = st.sidebar.selectbox("Hexbin-Y-Axis", measurements, index=1)
+
+if hexbin_x_axis and hexbin_y_axis:
+    hexbin_fig = plt.figure(figsize=(6,4))
+
+    hexbin_ax = hexbin_fig.add_subplot(111)
+
+    breast_cancer_df.plot.hexbin(x=hexbin_x_axis, y=hexbin_y_axis,
+                                 reduce_C_function=np.mean,
+                                 gridsize=25,
+                                 #cmap="Greens",
+                                 ax=hexbin_ax, title="Concentration of Measurements");
+
+##################### Layout Application ##################
+
+container1 = st.container()
+col1, col2 = st.columns(2)
+
+with container1:
+    with col1:
+        scatter_fig
+    with col2:
+        bar_fig
+
+
+container2 = st.container()
+col3, col4 = st.columns(2)
+
+with container2:
+    with col3:
+        hist_fig
+    with col4:
+        hexbin_fig
 
 
 
