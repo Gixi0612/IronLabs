@@ -23,7 +23,8 @@ CALL filter_salary(50000, 90000);
 
 #breakdown between the male and female employees working in the company each year, starting from 1990.
 
-SELECT 
+SELECT calendar_year, sum(active)
+FROM(SELECT 
     d.dept_name,
     ee.gender,
     dm.emp_no,
@@ -47,7 +48,9 @@ FROM
 		JOIN 
 	t_employees ee ON dm.emp_no = ee.emp_no
 having calendar_year>=1990
-ORDER BY dm.emp_no, calendar_year;
+ORDER BY dm.emp_no, calendar_year) as N
+group by calendar_year;
+
 
 
 #the number of male managers to the number of female managers from different departments for each year, starting from 1990.
