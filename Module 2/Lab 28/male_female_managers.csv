@@ -1,0 +1,199 @@
+calendar_year,dept_name,gender,count(active)
+1990,"Customer Service",M,10
+1990,"Customer Service",F,12
+1990,Development,M,7
+1990,Development,F,7
+1990,Finance,M,11
+1990,Finance,F,4
+1990,"Human Resources",M,8
+1990,"Human Resources",F,6
+1990,Marketing,M,8
+1990,Marketing,F,6
+1990,Production,M,11
+1990,Production,F,3
+1990,"Quality Management",M,11
+1990,"Quality Management",F,8
+1990,Research,M,8
+1990,Research,F,5
+1990,Sales,M,14
+1990,Sales,F,5
+1991,"Customer Service",M,10
+1991,"Customer Service",F,12
+1991,Development,M,7
+1991,Development,F,7
+1991,Finance,M,11
+1991,Finance,F,4
+1991,"Human Resources",M,8
+1991,"Human Resources",F,6
+1991,Marketing,M,8
+1991,Marketing,F,6
+1991,Production,M,11
+1991,Production,F,3
+1991,"Quality Management",M,11
+1991,"Quality Management",F,8
+1991,Research,M,8
+1991,Research,F,5
+1991,Sales,M,14
+1991,Sales,F,5
+1992,"Customer Service",M,10
+1992,"Customer Service",F,12
+1992,Development,M,7
+1992,Development,F,7
+1992,Finance,M,11
+1992,Finance,F,4
+1992,"Human Resources",M,8
+1992,"Human Resources",F,6
+1992,Marketing,M,8
+1992,Marketing,F,6
+1992,Production,M,11
+1992,Production,F,3
+1992,"Quality Management",M,11
+1992,"Quality Management",F,8
+1992,Research,M,8
+1992,Research,F,5
+1992,Sales,M,14
+1992,Sales,F,5
+1993,"Customer Service",M,10
+1993,"Customer Service",F,12
+1993,Development,M,7
+1993,Development,F,7
+1993,Finance,M,11
+1993,Finance,F,4
+1993,"Human Resources",M,8
+1993,"Human Resources",F,6
+1993,Marketing,M,8
+1993,Marketing,F,6
+1993,Production,M,11
+1993,Production,F,3
+1993,"Quality Management",M,11
+1993,"Quality Management",F,8
+1993,Research,M,8
+1993,Research,F,5
+1993,Sales,M,14
+1993,Sales,F,5
+1994,"Customer Service",M,10
+1994,"Customer Service",F,12
+1994,Development,M,7
+1994,Development,F,7
+1994,Finance,M,11
+1994,Finance,F,4
+1994,"Human Resources",M,8
+1994,"Human Resources",F,6
+1994,Marketing,M,8
+1994,Marketing,F,6
+1994,Production,M,11
+1994,Production,F,3
+1994,"Quality Management",M,11
+1994,"Quality Management",F,8
+1994,Research,M,8
+1994,Research,F,5
+1994,Sales,M,14
+1994,Sales,F,5
+1995,"Customer Service",M,10
+1995,"Customer Service",F,12
+1995,Development,M,7
+1995,Development,F,7
+1995,Finance,M,11
+1995,Finance,F,4
+1995,"Human Resources",M,8
+1995,"Human Resources",F,6
+1995,Marketing,M,8
+1995,Marketing,F,6
+1995,Production,M,11
+1995,Production,F,3
+1995,"Quality Management",M,11
+1995,"Quality Management",F,8
+1995,Research,M,8
+1995,Research,F,5
+1995,Sales,M,14
+1995,Sales,F,5
+1996,"Customer Service",M,10
+1996,"Customer Service",F,12
+1996,Development,M,7
+1996,Development,F,7
+1996,Finance,M,11
+1996,Finance,F,4
+1996,"Human Resources",M,8
+1996,"Human Resources",F,6
+1996,Marketing,M,8
+1996,Marketing,F,6
+1996,Production,M,11
+1996,Production,F,3
+1996,"Quality Management",M,11
+1996,"Quality Management",F,8
+1996,Research,M,8
+1996,Research,F,5
+1996,Sales,M,14
+1996,Sales,F,5
+1997,"Customer Service",M,10
+1997,"Customer Service",F,12
+1997,Development,M,7
+1997,Development,F,7
+1997,Finance,M,11
+1997,Finance,F,4
+1997,"Human Resources",M,8
+1997,"Human Resources",F,6
+1997,Marketing,M,8
+1997,Marketing,F,6
+1997,Production,M,11
+1997,Production,F,3
+1997,"Quality Management",M,11
+1997,"Quality Management",F,8
+1997,Research,M,8
+1997,Research,F,5
+1997,Sales,M,14
+1997,Sales,F,5
+1998,"Customer Service",M,10
+1998,"Customer Service",F,12
+1998,Development,M,7
+1998,Development,F,7
+1998,Finance,M,11
+1998,Finance,F,4
+1998,"Human Resources",M,8
+1998,"Human Resources",F,6
+1998,Marketing,M,8
+1998,Marketing,F,6
+1998,Production,M,11
+1998,Production,F,3
+1998,"Quality Management",M,11
+1998,"Quality Management",F,8
+1998,Research,M,8
+1998,Research,F,5
+1998,Sales,M,14
+1998,Sales,F,5
+1999,"Customer Service",M,10
+1999,"Customer Service",F,12
+1999,Development,M,7
+1999,Development,F,7
+1999,Finance,M,11
+1999,Finance,F,4
+1999,"Human Resources",M,8
+1999,"Human Resources",F,6
+1999,Marketing,M,8
+1999,Marketing,F,6
+1999,Production,M,11
+1999,Production,F,3
+1999,"Quality Management",M,11
+1999,"Quality Management",F,8
+1999,Research,M,8
+1999,Research,F,5
+1999,Sales,M,14
+1999,Sales,F,5
+2000,"Customer Service",M,10
+2000,"Customer Service",F,12
+2000,Development,M,7
+2000,Development,F,7
+2000,Finance,M,11
+2000,Finance,F,4
+2000,"Human Resources",M,8
+2000,"Human Resources",F,6
+2000,Marketing,M,8
+2000,Marketing,F,6
+2000,Production,M,11
+2000,Production,F,3
+2000,"Quality Management",M,11
+2000,"Quality Management",F,8
+2000,Research,M,8
+2000,Research,F,5
+2000,Sales,M,14
+2000,Sales,F,5
